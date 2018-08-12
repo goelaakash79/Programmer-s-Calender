@@ -1,0 +1,57 @@
+<!DOCTYPE html> {% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="{% static " css/style.css " %}"> -->
+</head>
+<style>
+  .body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    z-index: -1;
+    background-image: url('https://images.pexels.com/photos/943096/pexels-photo-943096.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');
+    opacity: 0.9;
+  }
+</style>
+
+<body>
+  <div class="body"></div>
+  <div class="ui container" style="padding-top:36px;">
+    <div class="ui huge header" style="font-family:Comfortaa; font-size:3em; color:white;">
+      {{ title }}
+    </div>
+    <h4 class="ui horizontal divider header" style="color:white; width:40%; padding-left:4em;">
+      <i class="code icon"></i>
+    </h4>
+    <div class="ui card" style="font-family:Comfortaa!important; width: 29em; margin-left:4em;">
+      <div class="ui slide masked reveal image">
+        <img src="https://nulltx.com/wp-content/uploads/2016/09/shutterstock_327848336.jpg" class="visible content" style="max-height:18em;">
+        <img src="https://ez.no/var/ezflow_site/storage/images/media/images/hackathon-landing-page-2/657157-2-eng-GB/Hackathon-landing-page-2.png" class="hidden content" style="height:18em;">
+      </div>
+      <div class="content">
+        <div class="meta" style="color:#333;">
+          A place to get the information of coding challenges and contests.
+        </div>
+        <div class="description" style="font-size:0.9em; padding:12px;">
+          Fill up your coffee mugs, and get ready with your shit logics to hack the exicting challenges, and grab your prizes.
+        </div>
+        <div class="center aligned" style="padding:1em;">
+          <a href='/index/ongoing/' class="ui basic blue button left floated">Ongoing Contests</a>
+          <a href='/index/upcoming/' class="ui basic green button right floated">Upcoming Contests</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

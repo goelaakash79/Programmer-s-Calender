@@ -1,0 +1,61 @@
+<!DOCTYPE html> {% load static %}
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>{{ title }}</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700" rel="stylesheet">
+	<!-- <link rel="stylesheet" href="{% static " css/style.css " %}"> -->
+</head>
+
+<body>
+	<div class="ui container" style="padding-top:36px;">
+		<div class="ui huge header" style="font-family:Comfortaa; font-size:3em;">
+			Ongoing Contests
+		</div>
+		<br>
+		<div class="ui four column grid ">
+
+			{% for contest in ongoing %}
+			<div target="_blank" class="column contest">
+				<div class="ui card" style="font-family:Comfortaa!important;">
+					<div class="content">
+						{% if contest.Platform == 'CODECHEF' %}
+						<img class="right floated mini ui image" src="https://s3.amazonaws.com/codechef_shared/misc/fb-image-icon.png"> {% elif contest.Platform == 'CODEFORCES' %}
+						<img class="right floated mini ui image" src="https://www.programmableweb.com/sites/default/files/styles/facebook_scale_width_200/public/Codeforces%20API.jpg?itok=9VnHVgCx"> {% elif contest.Platform == 'HACKEREARTH' %}
+						<img class="right floated mini ui image" src="https://www.stopstalk.com/stopstalk/static/images/hackerearth_logo.png?_rev=20180729033052"> {% elif contest.Platform == 'TOPCODER' %}
+						<img class="right floated mini ui image" src="https://pbs.twimg.com/media/DI-NVvxXgAAB3X-.jpg"> {% elif contest.Platform == 'HACKERRANK' %}
+						<img class="right floated mini ui image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/HackerRank_logo.png/220px-HackerRank_logo.png"> {% endif %}
+						<a href="{{ contest.url }}" class="header" style="color: steelblue; font-family:Comfortaa!important;">
+							{{ contest.Name }}
+						</a>
+						<br>
+						<div class="meta">
+							<b>Duration:</b> {{ contest.Duration }}
+						</div>
+						<div class="description" style="font-size:0.8em;">
+							{{ contest.Platform }}
+						</div>
+						{% if contest.challenge_type == 'contest' %}
+						<div class="description" style="font-size:0.8em; color:red;">
+							Contest
+						</div>
+						{% endif %}
+					</div>
+					<div class="extra content">
+						<p style="color:#333; font-size:0.9em;">
+							<b>From:</b> {{ contest.StartTime }}
+							<br> <b>To:</b> {{ contest.EndTime }}
+						</p>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</body>
+
+</html>
